@@ -62,9 +62,12 @@ func Kill(pid int, sig Signal) (err error) {
 	return ENOSYS // TODO
 }
 
-func Getpid() (pid int) {
-	panic("unimplemented: getpid") // TODO
-}
+func Getuid() int  { return int(libc_getuid()) }
+func Getgid() int  { return int(libc_getgid()) }
+func Geteuid() int { return int(libc_geteuid()) }
+func Getegid() int { return int(libc_getegid()) }
+func Getpid() int  { return int(libc_getpid()) }
+func Getppid() int { return int(libc_getppid()) }
 
 func Getenv(key string) (value string, found bool) {
 	data := append([]byte(key), 0)
@@ -108,3 +111,27 @@ func libc_open(pathname *byte, flags int, mode uint32) int
 // int close(int fd)
 //export close
 func libc_close(fd int) int
+
+// uid_t getuid(void)
+//export getuid
+func libc_getuid() int32
+
+// gid_t getgid(void)
+//export getgid
+func libc_getgid() int32
+
+// uid_t geteuid(void)
+//export geteuid
+func libc_geteuid() int32
+
+// gid_t getegid(void)
+//export getegid
+func libc_getegid() int32
+
+// gid_t getpid(void)
+//export getpid
+func libc_getpid() int32
+
+// gid_t getppid(void)
+//export getppid
+func libc_getppid() int32
