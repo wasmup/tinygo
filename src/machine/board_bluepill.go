@@ -11,7 +11,7 @@ const (
 	LED = PC13
 )
 
-var Serial = UART1
+var DefaultUART = UART1
 
 // UART pins
 const (

@@ -46,8 +46,6 @@ const (
 	NEOPIXELS = D8
 )
 
-var Serial = USB
-
 // USBCDC pins
 const (
 	USBCDC_DM_PIN = PA24

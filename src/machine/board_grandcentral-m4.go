@@ -141,8 +141,6 @@ const (
 	NEOPIXEL = NEOPIXEL_PIN
 )
 
-var Serial = USB
-
 // UART pins
 const (
 	UART1_RX_PIN = D0 // (PB25)
